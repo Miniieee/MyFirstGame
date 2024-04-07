@@ -11,7 +11,7 @@ public class Example : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("My First Line of Code");
+        Debug.Log("My Second Line of Code");
     }
 
     
