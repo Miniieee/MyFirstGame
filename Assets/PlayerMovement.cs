@@ -4,16 +4,52 @@ public class PlayerMovement : MonoBehaviour
 {
     
     [SerializeField] private Vector3 moveSpeed;
+    [SerializeField] private Vector3 jumpForce;
+    private PlayerInput inputActions;
     private Rigidbody rb;
-    private bool isRightPressed;
-    private bool isLeftPressed;
+    private float direction;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        inputActions = new PlayerInput();
     }
 
+    private void Start() 
+    {
+        inputActions.Player.Jump.performed += ctx => Jump();
+    }
+
+    void Update() 
+    {
+        direction = inputActions.Player.Movement.ReadValue<float>();
+        Debug.Log(direction);
+    }
+
+    private void Jump()
+    {
+        rb.AddForce(jumpForce);
+    }
+
+    private void FixedUpdate() 
+    {
+        rb.AddForce(direction * moveSpeed * Time.deltaTime);
+    }
+
+    private void OnEnable() {
+        inputActions.Enable();
+        inputActions.Player.Jump.Enable();
+    }
+
+    private void OnDisable() {
+        inputActions.Disable();
+        inputActions.Player.Jump.Disable();
+    }
     
+    
+
+
+    /*
     void Update()
     {
         if(Input.GetKey(KeyCode.D))
@@ -47,5 +83,5 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(-moveSpeed * Time.deltaTime);
         }
-    }
+    }*/
 }
