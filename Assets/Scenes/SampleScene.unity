@@ -465,14 +465,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 637526074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d76ae203c4ce7b41b2e9271312eee45, type: 3}
+  m_Script: {fileID: 11500000, guid: fbae0afff2bfea141b81f77397bb9dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 637526076}
-  x: 0
-  y: 500
-  z: 500
-  direction: {x: 0, y: 500, z: 500}
+  moveSpeed: {x: 500, y: 0, z: 0}
 --- !u!1 &904590134
 GameObject:
   m_ObjectHideFlags: 0
