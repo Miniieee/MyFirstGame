@@ -4,7 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     
     [SerializeField] private Vector3 moveSpeed;
-    [SerializeField] private Vector3 jumpForce;
+    [SerializeField] private Vector3 jump;
     private PlayerInput inputActions;
     private Rigidbody rb;
     private float direction;
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        rb.AddForce(jumpForce);
+        rb.AddForce(jump);
     }
 
     private void FixedUpdate() 
